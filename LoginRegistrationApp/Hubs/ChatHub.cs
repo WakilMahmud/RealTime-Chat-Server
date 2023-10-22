@@ -6,7 +6,7 @@ namespace LoginRegistrationApp.Hubs
     public class ChatHub : Hub
     {
         // Concurrent dictionary to store ContextId and Username mapping
-        private static readonly ConcurrentDictionary<string, string> contextIdToUsername = new ConcurrentDictionary<string, string>();
+        private static ConcurrentDictionary<string, string> contextIdToUsername = new ConcurrentDictionary<string, string>();
         public async Task JoinChat(string user, string message)
         {
             string connectionId = Context.ConnectionId;
@@ -29,6 +29,7 @@ namespace LoginRegistrationApp.Hubs
                 await Clients.Caller.SendAsync("ReceiveMessage", user, message);
             }
         }
+
     }
 }
 

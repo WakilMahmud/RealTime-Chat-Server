@@ -20,6 +20,8 @@ namespace LoginRegistrationApp.Controllers
             _configuration = configuration;
         }
 
+
+        //User Registration
         [HttpPost]
         [Route("registration")]
         public string registration(User user)
@@ -48,7 +50,7 @@ namespace LoginRegistrationApp.Controllers
         }
 
 
-
+        // User Login
         [HttpPost]
         [Route("login")]
         public string login(Login login)
@@ -74,7 +76,7 @@ namespace LoginRegistrationApp.Controllers
             }
         }
 
-
+        // Get All Registered Users
         [HttpGet]
         [Route("users")]
         public Response GetUsers() 
